@@ -1,3 +1,5 @@
+import 'package:demo/pages/scan_qrcode.dart';
+import 'package:demo/pages/setting.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +17,16 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       // key: value
       appBar: AppBar(
-        title: Text("SURAT PROMPT"),
+        title: Text("สุราษฎร์พร้อม"),
+        actions: [
+          IconButton(
+              onPressed: () {
+                // เรียกเพจ โดยใช้ชื่อคลาส
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => SettingPage()));
+              },
+              icon: Icon(Icons.account_circle)),
+        ],
       ),
       // Body  => พื้นที่แสดงข้อมูลในหน้าแอป
       body: Center(
@@ -28,11 +39,11 @@ class _HomePageState extends State<HomePage> {
       )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            count++;
-          });
+          // เรียกเพจ โดยใช้ชื่อคลาส
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => ScanQRCodePage()));
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.qr_code_scanner),
       ),
     );
   }
