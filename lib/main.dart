@@ -28,6 +28,7 @@ class Main extends StatelessWidget {
     return MaterialApp(
       title: "Demo App",
       theme: ThemeData(
+        fontFamily: "Kanit",
         primarySwatch: primarySwatch,
       ),
       home: HomePage(),
