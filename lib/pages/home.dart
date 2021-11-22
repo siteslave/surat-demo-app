@@ -38,11 +38,15 @@ class _HomePageState extends State<HomePage> {
             color: Color(0xFF4a148c)),
       )),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
           // เรียกเพจ โดยใช้ชื่อคลาส
-          Navigator.of(context).push(MaterialPageRoute(
+          var res = await Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => ScanQRCodePage(
                   cid: "123456789078", fullname: "Satit Rianpit")));
+
+          if (res != null) {
+            print(res);
+          }
         },
         child: Icon(Icons.qr_code_scanner),
       ),
