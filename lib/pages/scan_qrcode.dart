@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class ScanQRCodePage extends StatefulWidget {
-  const ScanQRCodePage({Key? key}) : super(key: key);
+  final String cid;
+  final String fullname;
+
+  ScanQRCodePage({required this.cid, required this.fullname});
 
   @override
   _ScanQRCodePageState createState() => _ScanQRCodePageState();
@@ -14,8 +17,12 @@ class _ScanQRCodePageState extends State<ScanQRCodePage> {
       appBar: AppBar(
         title: Text("สแกนเข้าพื้นที่"),
       ),
-      body: Center(
-        child: Text("สแกนคิวอาร์โค้ด"),
+      body: Column(
+        children: [
+          Text("เลขบัตรประชาชน: ${widget.cid}"),
+          Text("ชื่อ-สกุล: ${widget.fullname}"),
+          Text("สแกนคิวอาร์โค้ด"),
+        ],
       ),
     );
   }

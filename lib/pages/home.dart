@@ -40,8 +40,9 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           // เรียกเพจ โดยใช้ชื่อคลาส
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => ScanQRCodePage()));
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => ScanQRCodePage(
+                  cid: "123456789078", fullname: "Satit Rianpit")));
         },
         child: Icon(Icons.qr_code_scanner),
       ),
