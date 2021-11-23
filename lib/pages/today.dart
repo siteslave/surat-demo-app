@@ -15,12 +15,18 @@ class _TodayPageState extends State<TodayPage> {
       body: ListView(
         children: [
           WidgetItemToday(
+            onTab: () {
+              print("ร้าน ก.");
+            },
             storeName: "ร้าน ก.",
             address: "ต.ปปป อ.ปปปปปป",
             checkinTime: "11.00",
             color: Colors.green.shade100,
           ),
           WidgetItemToday(
+            onTab: () {
+              print("ร้าน ข.");
+            },
             storeName: "ร้าน ข.",
             address: "ต.พพพพ อ.พพพพพ",
             checkinTime: "12.00",
