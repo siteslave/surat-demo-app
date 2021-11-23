@@ -47,15 +47,19 @@ class _TodayPageState extends State<TodayPage> {
               "${user["name"]["title"]}${user["name"]["first"]} ${user["name"]["last"]}";
           var email = user["email"];
           var registerDate = user["registered"]["date"];
-          var male = user["gender"];
+          var gender = user["gender"];
           var age = user["dob"]["age"];
           Color color =
               age <= 50 ? Colors.green.shade100 : Colors.orange.shade100;
+          var imageUrl = gender == "male"
+              ? "assets/images/man.png"
+              : "assets/images/woman.png";
 
           return WidgetItemToday(
             onTab: () {
               print("$fullname");
             },
+            imageUrl: imageUrl,
             storeName: "$fullname",
             address: "$email",
             checkinTime: "$registerDate",

@@ -5,6 +5,7 @@ class WidgetItemToday extends StatefulWidget {
   final String address;
   final Color color;
   final String checkinTime;
+  final String imageUrl;
 
   final GestureTapCallback onTab;
 
@@ -13,6 +14,7 @@ class WidgetItemToday extends StatefulWidget {
       required this.address,
       required this.color,
       required this.checkinTime,
+      required this.imageUrl,
       required this.onTab});
 
   @override
@@ -31,7 +33,7 @@ class _WidgetItemTodayState extends State<WidgetItemToday> {
             color: widget.color, borderRadius: BorderRadius.circular(10)),
         child: ListTile(
           leading: CircleAvatar(
-            child: Icon(Icons.emoji_emotions),
+            child: Image.asset(widget.imageUrl),
           ),
           title: Text("${widget.storeName}"),
           subtitle: Column(
