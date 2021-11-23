@@ -1,5 +1,7 @@
+import 'package:demo/pages/history.dart';
 import 'package:demo/pages/scan_qrcode.dart';
 import 'package:demo/pages/setting.dart';
+import 'package:demo/pages/today.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,7 +12,17 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int count = 0;
+  int selectedIndex = 0;
+  // การใช้ If-Else แบบเดิม
+  /*
+  Widget getPage(int index) {
+    if(index == 0) {
+      return TodayPage();
+    } else {
+      return HistoryPage();
+    }
+  }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -28,15 +40,8 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.account_circle)),
         ],
       ),
-      // Body  => พื้นที่แสดงข้อมูลในหน้าแอป
-      body: Center(
-          child: Text(
-        "Total: $count",
-        style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF4a148c)),
-      )),
+      // Short If-Else
+      body: selectedIndex == 0 ? TodayPage() : HistoryPage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           // เรียกเพจ โดยใช้ชื่อคลาส
@@ -49,6 +54,22 @@ class _HomePageState extends State<HomePage> {
           }
         },
         child: Icon(Icons.qr_code_scanner),
+      ),
+
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: selectedIndex,
+        onTap: (int index) {
+          print(index);
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.location_on), label: "วันนี้"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.travel_explore), label: "ประวัติ"),
+        ],
       ),
     );
   }
