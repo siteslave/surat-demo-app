@@ -1,5 +1,7 @@
+import 'package:demo/pages/history.dart';
 import 'package:demo/pages/scan_qrcode.dart';
 import 'package:demo/pages/setting.dart';
+import 'package:demo/pages/today.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -11,6 +13,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
+  // การใช้ If-Else แบบเดิม
+  /*
+  Widget getPage(int index) {
+    if(index == 0) {
+      return TodayPage();
+    } else {
+      return HistoryPage();
+    }
+  }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +40,8 @@ class _HomePageState extends State<HomePage> {
               icon: Icon(Icons.account_circle)),
         ],
       ),
-      // Body  => พื้นที่แสดงข้อมูลในหน้าแอป
-      body: Container(),
+      // Short If-Else
+      body: selectedIndex == 0 ? TodayPage() : HistoryPage(),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           // เรียกเพจ โดยใช้ชื่อคลาส
