@@ -29,6 +29,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       // key: value
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text("สุราษฎร์พร้อม"),
         actions: [
           IconButton(
